@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>態度 — 精神健康素養計劃</title>
+  <meta name="description" content="了解精神健康污名化的成因、類型及應對策略，建立更具同理心的社會。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --color-bg: #f4f6fb; --color-surface: #ffffff; --color-surface-2: #eef2fa;
+      --color-divider: #d1d9ee; --color-text: #1a2133; --color-text-muted: #4a5568;
+      --color-text-faint: #94a3b8; --color-primary: #2563a8; --color-primary-hover: #1a4d8f;
+      --color-primary-highlight: #c5d9f5;
+      --shadow-sm: 0 1px 3px rgba(30,40,80,0.07); --shadow-md: 0 4px 16px rgba(30,40,80,0.10); --shadow-lg: 0 12px 40px rgba(30,40,80,0.13);
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1.25rem; --radius-full: 9999px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem; --space-5:1.25rem; --space-6:1.5rem;
+      --space-8:2rem; --space-10:2.5rem; --space-12:3rem; --space-16:4rem; --space-20:5rem; --space-24:6rem;
+      --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+      --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+      --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --text-hero:clamp(2.25rem,1rem + 4vw,4.5rem);
+      --font-body:'Noto Sans HK','Segoe UI','Helvetica Neue',sans-serif;
+      --content-wide:1200px;
+    }
+    [data-theme="dark"] {
+      --color-bg:#111827; --color-surface:#172035; --color-surface-2:#1c2640;
+      --color-divider:#243259; --color-text:#e2e8f0; --color-text-muted:#94a3b8;
+      --color-text-faint:#4a6080; --color-primary:#5b9dd9; --color-primary-hover:#3d82c4;
+      --color-primary-highlight:#1a2d4a;
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.25); --shadow-md:0 4px 16px rgba(0,0,0,0.35); --shadow-lg:0 12px 40px rgba(0,0,0,0.45);
+    }
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme]) {
+        --color-bg:#111827; --color-surface:#172035; --color-surface-2:#1c2640;
+        --color-divider:#243259; --color-text:#e2e8f0; --color-text-muted:#94a3b8;
+        --color-text-faint:#4a6080; --color-primary:#5b9dd9; --color-primary-hover:#3d82c4;
+        --color-primary-highlight:#1a2d4a;
+        --shadow-sm:0 1px 3px rgba(0,0,0,0.25); --shadow-md:0 4px 16px rgba(0,0,0,0.35); --shadow-lg:0 12px 40px rgba(0,0,0,0.45);
+      }
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;scroll-padding-top:8rem;-webkit-font-smoothing:antialiased;}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.75;color:var(--color-text);background:var(--color-bg);min-height:100dvh;transition:background var(--transition),color var(--transition);}
+    img,svg{display:block;max-width:100%;}
+    ul{list-style:none;}
+    h1,h2,h3,h4{line-height:1.2;font-family:var(--font-body);font-weight:700;}
+    p{max-width:none;}
+    a,button{transition:color var(--transition),background var(--transition),box-shadow var(--transition),border-color var(--transition);}
+    button{cursor:pointer;background:none;border:none;font:inherit;}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm);}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .skip-link{position:absolute;top:-100%;left:var(--space-4);background:var(--color-primary);color:#fff;padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:600;text-decoration:none;z-index:1000;}
+    .skip-link:focus{top:var(--space-4);}
+
+    /* ── NAV ── */
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:0;border-bottom:none;}
+    [data-theme="dark"] nav{background:rgba(23,32,53,0.92);}
+    .nav-top-bar{border-bottom:1px solid var(--color-divider);padding:0 var(--space-6);}
+    .nav-inner{max-width:var(--content-wide);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:6rem;gap:var(--space-4);}
+    .nav-logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text);font-size:var(--text-2xl);font-weight:700;flex-shrink:0;}
+    .nav-logo-img{width:5rem;height:5rem;object-fit:contain;flex-shrink:0;}
+    .nav-logo-text{white-space:nowrap;}
+    .nav-actions{display:flex;align-items:center;gap:var(--space-3);flex-shrink:0;}
+    .nav-bottom-bar{background:var(--color-surface-2);border-bottom:2px solid var(--color-primary);padding:0 var(--space-6);}
+    [data-theme="dark"] .nav-bottom-bar{background:var(--color-surface-2);}
+    .nav-links-wrapper{max-width:var(--content-wide);margin:0 auto;display:flex;align-items:center;padding:var(--space-1) 0;}
+    .nav-links{display:flex;align-items:center;gap:var(--space-1);}
+    .nav-links a{text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);font-weight:500;padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);white-space:nowrap;}
+    .nav-links a:hover{color:var(--color-primary);background:var(--color-primary-highlight);}
+    .nav-links a.active{color:var(--color-primary);font-weight:600;}
+    .theme-toggle{width:2.25rem;height:2.25rem;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-full);color:var(--color-text-muted);border:1px solid var(--color-divider);}
+    .theme-toggle:hover{color:var(--color-primary);border-color:var(--color-primary);background:var(--color-primary-highlight);}
+    .nav-cta{font-size:var(--text-sm);font-weight:600;padding:var(--space-2) var(--space-5);border-radius:var(--radius-full);background:var(--color-primary);color:#fff;text-decoration:none;white-space:nowrap;}
+    .nav-cta:hover{background:var(--color-primary-hover);box-shadow:var(--shadow-md);}
+    .hamburger{display:none;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border-radius:var(--radius-md);color:var(--color-text-muted);border:1px solid var(--color-divider);}
+
+    /* ── HERO ── */
+    .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--color-surface) 0%,var(--color-surface-2) 50%,var(--color-primary-highlight) 100%);padding:clamp(var(--space-16),8vw,var(--space-24)) var(--space-6);}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(37,99,168,0.06),transparent);pointer-events:none;}
+    .hero-inner{position:relative;max-width:var(--content-wide);margin:0 auto;}
+    .hero-text{max-width:1200px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-primary-highlight);color:var(--color-primary);border:1px solid rgba(37,99,168,0.2);font-size:var(--text-xs);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);margin-bottom:var(--space-5);}
+    .hero h1 { font-size: var(--text-2xl); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-5); line-height: 1.2; }
+
+    .hero h1 em{font-style:normal;color:var(--color-primary);}
+    .hero-desc{font-size:var(--text-lg);color:var(--color-text-muted);line-height:1.7;}
+
+    /* ── TOC ── */
+    .toc-bar{background:var(--color-surface);border-bottom:1px solid var(--color-divider);padding:var(--space-3) var(--space-6);position:sticky;top:8rem;z-index:90;overflow-x:auto;}
+    .toc-bar-inner{max-width:var(--content-wide);margin:0 auto;display:flex;gap:var(--space-1);flex-wrap:nowrap;min-width:max-content;}
+    .toc-link{font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-decoration:none;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);white-space:nowrap;letter-spacing:0.03em;border:1px solid transparent;}
+    .toc-link:hover{color:var(--color-primary);background:var(--color-primary-highlight);}
+    .toc-link.active{color:var(--color-primary);background:var(--color-primary-highlight);border-color:rgba(37,99,168,0.2);}
+
+    /* ── CONTENT SECTIONS ── */
+    .content-section{padding:clamp(var(--space-12),6vw,var(--space-20)) var(--space-6);}
+    .content-section:nth-child(even){background:var(--color-surface);}
+    .content-section:nth-child(odd){background:var(--color-bg);}
+    .section-inner{max-width:var(--content-wide);margin:0 auto;}
+    .section-label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3);display:block;}
+    .section-title{font-size:var(--text-xl);font-weight:700;color:var(--color-text);margin-bottom:var(--space-5);}
+    .section-desc{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.8;margin-bottom:var(--space-8);}
+
+    /* ── DEF GRID ── */
+    .def-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);margin-bottom:var(--space-8);}
+    @media(max-width:768px){.def-grid{grid-template-columns:1fr;}}
+    .def-card{background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-xl);padding:var(--space-8);transition:all var(--transition);}
+    .content-section:nth-child(even) .def-card{background:var(--color-bg);}
+    .def-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+    .def-icon{width:2.75rem;height:2.75rem;background:var(--color-primary-highlight);color:var(--color-primary);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-4);}
+    .def-tag{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3);}
+    .def-card h3{font-size:var(--text-base);font-weight:700;color:var(--color-text);margin-bottom:var(--space-3);}
+    .def-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;}
+    .quote-block{border-left:3px solid var(--color-primary);padding:var(--space-5) var(--space-6);background:var(--color-primary-highlight);border-radius:0 var(--radius-lg) var(--radius-lg) 0;font-size:var(--text-base);color:var(--color-text);line-height:1.8;font-style:italic;}
+    .quote-block cite{display:block;margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-muted);font-style:normal;}
+
+    /* ── TYPES GRID ── */
+    .types-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);}
+    @media(max-width:1000px){.types-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:560px){.types-grid{grid-template-columns:1fr;}}
+    .type-card{background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-xl);padding:var(--space-8);transition:all var(--transition);}
+    .content-section:nth-child(even) .type-card{background:var(--color-bg);}
+    .type-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+    .type-card h3{font-size:var(--text-base);font-weight:700;color:var(--color-text);margin-bottom:var(--space-4);}
+    .type-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-4);}
+    .type-card ul{display:flex;flex-direction:column;gap:var(--space-2);}
+    .type-card ul li{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:var(--space-4);position:relative;line-height:1.6;}
+    .type-card ul li::before{content:"·";position:absolute;left:0;color:var(--color-primary);font-weight:700;}
+
+    /* ── STATS GRID ── */
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);margin-bottom:var(--space-8);}
+    @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:560px){.stats-grid{grid-template-columns:1fr;}}
+    .stat-card{background:var(--color-primary-highlight);border:1px solid rgba(37,99,168,0.15);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;}
+    .stat-card .big-num{font-size:var(--text-2xl);font-weight:700;color:var(--color-primary);line-height:1;display:block;margin-bottom:var(--space-2);}
+    .stat-card p{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.5;}
+
+    /* ── MYTH vs FACT ── */
+    .myth-list{display:flex;flex-direction:column;gap:var(--space-5);}
+    .myth-item{border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-sm);background:var(--color-surface);}
+    .content-section:nth-child(even) .myth-item{background:var(--color-bg);}
+    .myth-row{display:grid;grid-template-columns:1fr 1fr;}
+    @media(max-width:640px){.myth-row{grid-template-columns:1fr;}}
+    .myth-col{padding:var(--space-6);}
+    .myth-side{background:rgba(254,226,226,0.4);border-right:1px solid var(--color-divider);}
+    [data-theme="dark"] .myth-side{background:rgba(120,30,30,0.2);}
+    @media(max-width:640px){.myth-side{border-right:none;border-bottom:1px solid var(--color-divider);}}
+    .fact-side{background:rgba(220,252,231,0.4);}
+    [data-theme="dark"] .fact-side{background:rgba(20,80,40,0.2);}
+    .myth-col-label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:var(--space-3);color:var(--color-text-muted);}
+    .myth-col h4{font-size:var(--text-sm);font-weight:700;color:var(--color-text);margin-bottom:var(--space-3);}
+    .myth-col p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;}
+
+    /* ── STRATEGIES GRID ── */
+    .strategies-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);}
+    @media(max-width:1000px){.strategies-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:560px){.strategies-grid{grid-template-columns:1fr;}}
+    .strategy-card{background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-xl);padding:var(--space-8);transition:all var(--transition);}
+    .content-section:nth-child(even) .strategy-card{background:var(--color-bg);}
+    .strategy-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+    .strategy-num{width:2.25rem;height:2.25rem;background:var(--color-primary);color:#fff;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;font-size:var(--text-sm);font-weight:700;margin-bottom:var(--space-5);}
+    .strategy-card h3{font-size:var(--text-base);font-weight:700;color:var(--color-text);margin-bottom:var(--space-4);}
+    .strategy-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-4);}
+    .strategy-card ul{display:flex;flex-direction:column;gap:var(--space-2);}
+    .strategy-card ul li{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:var(--space-4);position:relative;line-height:1.6;}
+    .strategy-card ul li::before{content:"·";position:absolute;left:0;color:var(--color-primary);font-weight:700;}
+
+    /* ── MODEL BANNER ── */
+    .model-banner{background:linear-gradient(135deg,var(--color-primary) 0%,#1a4d8f 100%);padding:clamp(var(--space-12),6vw,var(--space-20)) var(--space-6);}
+    .model-banner-inner{max-width:var(--content-wide);margin:0 auto;}
+    .model-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);}
+    @media(max-width:640px){.model-grid{grid-template-columns:1fr;}}
+    .model-card{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-xl);padding:var(--space-8);}
+    .model-card h3{font-size:var(--text-lg);font-weight:700;color:#fff;margin-bottom:var(--space-5);}
+    .model-card ul{display:flex;flex-direction:column;gap:var(--space-3);}
+    .model-card ul li{font-size:var(--text-sm);color:rgba(255,255,255,0.85);padding-left:var(--space-4);position:relative;line-height:1.6;}
+    .model-card ul li::before{content:"·";position:absolute;left:0;color:rgba(255,255,255,0.6);font-weight:700;}
+    .model-banner .section-label{color:rgba(255,255,255,0.7);}
+    .model-banner .section-title{color:#fff;margin-bottom:var(--space-8);}
+
+    /* ── CTA BANNER ── */
+    .cta-banner{background:var(--color-surface-2);border-top:1px solid var(--color-divider);padding:clamp(var(--space-12),6vw,var(--space-20)) var(--space-6);text-align:center;}
+    .cta-banner h2{font-size:var(--text-2xl);color:var(--color-text);margin-bottom:var(--space-4);}
+    .cta-banner p{font-size:var(--text-lg);color:var(--color-text-muted);margin:0 auto var(--space-8);}
+    .cta-actions{display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;}
+    .btn-primary{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-primary);color:#fff;padding:var(--space-3) var(--space-8);border-radius:var(--radius-full);font-weight:700;font-size:var(--text-sm);text-decoration:none;}
+    .btn-primary:hover{background:var(--color-primary-hover);box-shadow:var(--shadow-md);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:var(--space-2);background:transparent;color:var(--color-primary);padding:var(--space-3) var(--space-8);border-radius:var(--radius-full);font-weight:700;font-size:var(--text-sm);text-decoration:none;border:2px solid var(--color-primary);}
+    .btn-ghost:hover{background:var(--color-primary-highlight);}
+
+    /* ── REVEAL ── */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+
+    /* ── DISCLAIMER ── */
+    .disclaimer{background:var(--color-surface-2);border-top:1px solid var(--color-divider);padding:var(--space-6);}
+    .disclaimer-inner{max-width:var(--content-wide);margin:0 auto;display:flex;align-items:flex-start;gap:var(--space-3);padding:0 var(--space-6);}
+    .disclaimer svg{color:var(--color-primary);flex-shrink:0;margin-top:3px;}
+    .disclaimer p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin:0;}
+
+    /* ── FOOTER ── */
+    .footer-contact{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4);}
+    .footer-contact a{color:var(--color-primary);text-decoration:none;}
+    .footer-contact a:hover{text-decoration:underline;}
+    footer{background:var(--color-surface);border-top:1px solid var(--color-divider);padding:var(--space-8) var(--space-6);}
+    .footer-inner{max-width:var(--content-wide);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);}
+    .footer-logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none;color:var(--color-text);font-size:var(--text-sm);font-weight:700;}
+    .footer-logo-img{width:1.75rem;height:1.75rem;object-fit:contain;}
+    .footer-links{display:flex;flex-wrap:wrap;gap:var(--space-1);}
+    .footer-links a{text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);}
+    .footer-links a:hover{color:var(--color-primary);}
+    .footer-bottom{max-width:var(--content-wide);margin:0 auto;}
+    .footer-copy{font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-3);}
+
+    /* ── MOBILE ── */
+    @media(max-width:768px){
+      .nav-bottom-bar{display:none;}
+      .nav-bottom-bar.open{display:block;}
+      .hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .nav-links{flex-direction:column;align-items:flex-start;padding:var(--space-2) 0;}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">跳至主要內容</a>
+
+  <nav role="navigation" aria-label="主要導航">
+    <div class="nav-top-bar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="精神健康素養計劃首頁">
+          <img src="MHLP.jpg" alt="精神健康素養標誌" class="nav-logo-img" onerror="this.style.display='none'" />
+         <span style="font-size: 40px; 
+             font-weight: bold; 
+             background: linear-gradient(to right, lightblue, #6D8EF7); 
+             -webkit-background-clip: text; 
+             background-clip: text; 
+             color: transparent; 
+             display: inline-block;">
+      Mindlitera
+</span>
+
+        </a>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="切換主題" title="切換主題">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <a href="help.html" class="nav-cta">尋找支援</a>
+          <button class="hamburger" aria-label="開啟選單" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-bottom-bar" aria-label="頁面導航">
+      <div class="nav-links-wrapper">
+        <ul class="nav-links">
+             <li><a href="index.html" class="active" aria-current="page">首頁</a></li>
+          <li><a href="learn.html">知識</a></li>
+          <li><a href="stigma.html">態度</a></li>
+          <li><a href="selfhelp.html">自助</a></li>
+          <li><a href="help.html">尋求協助</a></li>
+<li><a href="help.html">尋求協助</a></li>
+          <li><a href="help.html">尋求協助</a></li>
+         <li><a href="activties.html">活動</a></li>
+         <li><a href="others.html">其他連結</a></li>
+
+            
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">態度</div>
+        <h1>減少<em>污名化</em>從了解開始</h1>
+        <p class="hero-desc">污名化是精神健康患者尋求協助的最大障礙之一。認識污名的成因、現況及應對策略，有助建立更具同理心的社會。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc-bar" aria-label="頁面目錄">
+    <div class="toc-bar-inner">
+      <a href="#definition" class="toc-link">什麼是污名化</a>
+      <a href="#types" class="toc-link">四種污名類型</a>
+      <a href="#hk-stats" class="toc-link">香港現況</a>
+      <a href="#myths" class="toc-link">迷思 vs 事實</a>
+      <a href="#strategies" class="toc-link">減少污名化策略</a>
+      <a href="#model" class="toc-link">模式轉變</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- 1. 什麼是污名化 -->
+    <section id="definition" class="content-section" aria-labelledby="def-heading">
+      <div class="section-inner">
+        <p class="section-label reveal">定義</p>
+        <h2 class="section-title reveal" id="def-heading">什麼是精神健康污名化？</h2>
+        <p class="section-desc reveal">污名化 (Stigma) 是由刻板印象、偏見與歧視三個相互關聯的問題組成，影響人們對精神病患者的看法、態度與行為。</p>
+        <div class="def-grid">
+          <div class="def-card reveal" style="transition-delay:0.05s">
+            <div class="def-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <div class="def-tag">認知問題</div>
+            <h3>刻板印象 (Stereotypes)</h3>
+            <p>對精神病患者的概括性錯誤信念，例如認為「精神病患者有暴力傾向」。</p>
+          </div>
+          <div class="def-card reveal" style="transition-delay:0.10s">
+            <div class="def-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="def-tag">態度問題</div>
+            <h3>偏見 (Prejudice)</h3>
+            <p>基於刻板印象作出的負面判斷，例如「我不想和他們有任何關係，因為他們具有暴力性」。</p>
+          </div>
+          <div class="def-card reveal" style="transition-delay:0.15s">
+            <div class="def-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            </div>
+            <div class="def-tag">行為問題</div>
+            <h3>歧視 (Discrimination)</h3>
+            <p>基於刻板印象及偏見採取的行動，例如「因為害怕精神病患者，所以不聘用他們」。</p>
+          </div>
+        </div>
+        <blockquote class="quote-block reveal">
+          「污名化不只是個人問題，而是系統性的社會問題。它影響就業、住屋、醫療保健及教育機會。」
+          <cite>— Corrigan et al., 2012 · Challenging the Public Stigma of Mental Illness</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 2. 四種污名類型 -->
+    <section id="types" class="content-section" aria-labelledby="types-heading">
+      <div class="section-inner">
+        <p class="section-label reveal">類型</p>
+        <h2 class="section-title reveal" id="types-heading">四種污名化類型</h2>
+        <p class="section-desc reveal">精神病患者可能同時面對多種形式的污名，來自社會、機構，甚至是自身。</p>
+        <div class="types-grid">
+          <div class="type-card reveal" style="transition-delay:0.05s">
+            <h3>🌍 公眾污名 (Public Stigma)</h3>
+            <p>由社會、群體或個人施加的外在污名，影響患者在就業、住屋、醫療及教育方面的機會。</p>
+            <ul>
+              <li>被視為無能力或危險人物</li>
+              <li>在工作場所受到歧視性對待</li>
+              <li>在社區中被孤立排斥</li>
+            </ul>
+          </div>
+          <div class="type-card reveal" style="transition-delay:0.10s">
+            <h3>💭 自我污名 (Self-Stigma)</h3>
+            <p>將公眾污名內化，對自身產生負面看法，影響自尊及自我效能，減少求助意願，令康復效果更差。</p>
+            <ul>
+              <li>相信自己無能力工作或接受教育</li>
+              <li>減少尋求治療及參與程度</li>
+              <li>形成「自我實現的預言」惡性循環</li>
+            </ul>
+          </div>
+          <div class="type-card reveal" style="transition-delay:0.15s">
+            <h3>🏥 專業污名 (Professional Stigma)</h3>
+            <p>醫護人員對精神病患者持有的負面態度，影響照顧質素及患者的就醫體驗。</p>
+            <ul>
+              <li>對精神分裂症患者持更多負面態度</li>
+              <li>將生理護理凌駕於精神健康之上</li>
+              <li>迴避行為以減少與患者的接觸</li>
+            </ul>
+          </div>
+          <div class="type-card reveal" style="transition-delay:0.20s">
+            <h3>🏛️ 機構污名 (Institutional Stigma)</h3>
+            <p>組織的政策或文化對污名化個體持有負面態度與信念，影響精神科服務所獲得的政治及財政支持。</p>
+            <ul>
+              <li>精神科服務投資不足</li>
+              <li>缺乏足夠設施及訓練有素的人員</li>
+              <li>嚴重精神病患者得不到適切支援</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 香港現況 -->
+    <section id="hk-stats" class="content-section" aria-labelledby="hk-heading">
+      <div class="section-inner">
+        <p class="section-label reveal">香港現況</p>
+        <h2 class="section-title reveal" id="hk-heading">香港的污名化現況</h2>
+        <p class="section-desc reveal">根據 2020 年 8 至 9 月香港調查數據，污名化問題仍然普遍。</p>
+        <div class="stats-grid reveal">
+          <div class="stat-card">
+            <span class="big-num">23%</span>
+            <p>不願意與精神病患者一起工作</p>
+          </div>
+          <div class="stat-card">
+            <span class="big-num">47%</span>
+            <p>不願意與精神病患者住在隔壁</p>
+          </div>
+          <div class="stat-card">
+            <span class="big-num">46%</span>
+            <p>認為精神病的主因是缺乏自律</p>
+          </div>
+          <div class="stat-card">
+            <span class="big-num">74%</span>
+            <p>精神健康患者從未向專業人士求助</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 迷思 vs 事實 -->
+    <section id="myths" class="content-section" aria-labelledby="myths-heading">
+      <div class="section-inner">
+        <p class="section-label reveal">常見迷思</p>
+        <h2 class="section-title reveal" id="myths-heading">迷思 vs 事實</h2>
+        <p class="section-desc reveal">破除對精神健康的常見誤解，是減少污名化的第一步。</p>
+        <div class="myth-list">
+          <div class="myth-item reveal">
+            <div class="myth-row">
+              <div class="myth-col myth-side">
+                <div class="myth-col-label">❌ 迷思</div>
+                <h4>精神健康問題非常罕見</h4>
+                <p>大多數人認為精神病只影響少數人，與自己無關。</p>
+              </div>
+              <div class="myth-col fact-side">
+                <div class="myth-col-label">✅ 事實</div>
+                <h4>每年約五分之一的人受到影響</h4>
+                <p>每年約有五分之一的人會患上精神健康問題。每25人中有1人患有重大精神病，包括焦慮症、嚴重抑鬱症、躁鬱症及精神分裂症。</p>
+              </div>
+            </div>
+          </div>
+          <div class="myth-item reveal">
+            <div class="myth-row">
+              <div class="myth-col myth-side">
+                <div class="myth-col-label">❌ 迷思</div>
+                <h4>精神病是意志力薄弱的表現</h4>
+                <p>患者只要「振作」起來就可以克服，精神病是個人性格問題。</p>
+              </div>
+              <div class="myth-col fact-side">
+                <div class="myth-col-label">✅ 事實</div>
+                <h4>精神病與意志力強弱無關</h4>
+                <p>精神病並不代表個人軟弱或堅強。如同感染或骨折需要治療，精神病涉及多種生理、心理及環境因素，同樣需要適切的治療。</p>
+              </div>
+            </div>
+          </div>
+          <div class="myth-item reveal">
+            <div class="myth-row">
+              <div class="myth-col myth-side">
+                <div class="myth-col-label">❌ 迷思</div>
+                <h4>精神病患者往往暴力且危險</h4>
+                <p>媒體報道令人誤以為精神病患者普遍具有攻擊性。</p>
+              </div>
+              <div class="myth-col fact-side">
+                <div class="myth-col-label">✅ 事實</div>
+                <h4>大多數患者並不具暴力性</h4>
+                <p>大多數精神病患者並不具暴力性。研究顯示，精神病患者所涉及的暴力行為僅佔整體的約 3–5%（Fazel & Grann, 2006）。重大精神病患者成為暴力受害者的機率遠高於一般人。</p>
+              </div>
+            </div>
+          </div>
+          <div class="myth-item reveal">
+            <div class="myth-row">
+              <div class="myth-col myth-side">
+                <div class="myth-col-label">❌ 迷思</div>
+                <h4>精神病患者永遠無法康復</h4>
+                <p>一旦患上精神病，便會終身受困，無法過正常生活。</p>
+              </div>
+              <div class="myth-col fact-side">
+                <div class="myth-col-label">✅ 事實</div>
+                <h4>康復是可能的，且因人而異</h4>
+                <p>精神健康在人生不同階段會起伏變化。良好的治療計劃有助患者走過困難並康復。部分個案屬暫時性，經治療後可以康復，重新成為社會的生產力成員。</p>
+              </div>
+            </div>
+          </div>
+          <div class="myth-item reveal">
+            <div class="myth-row">
+              <div class="myth-col myth-side">
+                <div class="myth-col-label">❌ 迷思</div>
+                <h4>我無法幫助精神病患者</h4>
+                <p>面對精神病患者，普通人束手無策，只能旁觀。</p>
+              </div>
+              <div class="myth-col fact-side">
+                <div class="myth-col-label">✅ 事實</div>
+                <h4>每個人都可以提供支持</h4>
+                <p>你可以讓對方知道你願意幫忙、協助尋找精神健康服務、了解他們的經歷、以尊重的態度對待他們，並以對方能理解的方式表達你的支持。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 減少污名化策略 -->
+    <section id="strategies" class="content-section" aria-labelledby="strategies-heading">
+      <div class="section-inner">
+        <p class="section-label reveal">應對策略</p>
+        <h2 class="section-title reveal" id="strategies-heading">如何減少污名化？</h2>
+        <p class="section-desc reveal">減少污名化需要從個人、社會及制度三個層面同時著手。</p>
+        <div class="strategies-grid">
+          <div class="strategy-card reveal" style="transition-delay:0.05s">
+            <div class="strategy-num">1</div>
+            <h3>社交接觸 (Social Contact)</h3>
+            <p>直接接觸有精神病經驗的人士，是改變態度最有效的方法之一。</p>
+            <ul>
+              <li>聚焦於人，而非精神病的標籤</li>
+              <li>讓有親身經歷的患者參與教育活動</li>
+              <li>分享康復故事</li>
+              <li>推行朋輩支援工作者計劃</li>
+            </ul>
+          </div>
+          <div class="strategy-card reveal" style="transition-delay:0.10s">
+            <div class="strategy-num">2</div>
+            <h3>改變語言與規範</h3>
+            <p>語言塑造態度，選用適當的字詞有助消除污名。</p>
+            <ul>
+              <li>使用以人為本的第一身語言</li>
+              <li>認真對待疾病的嚴重性</li>
+              <li>以尊嚴和尊重對待每一個人</li>
+              <li>聆聽並理解患者的感受</li>
+              <li>倡導患者反對歧視</li>
+            </ul>
+          </div>
+          <div class="strategy-card reveal" style="transition-delay:0.15s">
+            <div class="strategy-num">3</div>
+            <h3>集體抗議 (Protest)</h3>
+            <p>集體發聲，向決策者施壓，要求改變污名化的形象與政策。</p>
+            <ul>
+              <li>審視並抗議污名化的媒體形象</li>
+              <li>要求相關人士作出改變</li>
+              <li>促進污名化議題的公開討論</li>
+            </ul>
+          </div>
+          <div class="strategy-card reveal" style="transition-delay:0.20s">
+            <div class="strategy-num">4</div>
+            <h3>改變醫患關係</h3>
+            <p>從以醫生為主導的模式，轉變為平等夥伴關係。</p>
+            <ul>
+              <li>雙向溝通而非單向告知</li>
+              <li>支持患者的自主決策能力</li>
+              <li>關注個人優勢而非缺陷</li>
+              <li>尊重患者的私隱、尊嚴與人道關懷權利</li>
+              <li>從醫學模式轉向康復模式</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 模式轉變 -->
+    <section id="model" aria-labelledby="model-heading">
+      <div class="model-banner">
+        <div class="model-banner-inner">
+          <p class="section-label reveal">模式轉變</p>
+          <h2 class="section-title reveal" id="model-heading">從醫學模式走向康復模式</h2>
+          <div class="model-grid">
+            <div class="model-card reveal" style="transition-delay:0.05s">
+              <h3>🏥 醫學模式 (Medical Model)</h3>
+              <ul>
+                <li>聚焦於生理成因及症狀</li>
+                <li>由醫護人員主導一切決定</li>
+                <li>患者被視為被動的照顧接受者</li>
+                <li>目標是消除症狀或控制病情</li>
+                <li>以「問題」定義患者</li>
+              </ul>
+            </div>
+            <div class="model-card reveal" style="transition-delay:0.10s">
+              <h3>🌱 康復模式 (Recovery Model)</h3>
+              <ul>
+                <li>聚焦於患者改變、改善健康及自主生活的過程</li>
+                <li>強調患者的優勢、希望與賦權</li>
+                <li>患者積極參與自己的康復計劃</li>
+                <li>目標是活出有意義和令人滿意的生活</li>
+                <li>整全地看待患者的生命全貌</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-banner">
+      <div class="section-inner">
+        <h2>準備好繼續探索？</h2>
+        <p>了解自助策略，或尋找香港的精神健康支援資源。</p>
+        <div class="cta-actions">
+          <a href="selfhelp.html" class="btn-primary">
+            自助策略
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="help.html" class="btn-ghost">尋求協助</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="disclaimer" role="note" aria-label="免責聲明">
+    <div class="disclaimer-inner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p><strong>免責聲明：</strong>本網站僅供<strong>教育及資訊分享用途</strong>，內容為個人整理與概念性討論，並不代表任何專業機構或醫療意見。本網站所提供之內容不構成專業醫療、心理或精神科之建議、診斷或治療，亦不應被視為臨床標準或用於自我診斷。本網站之概念與分類屬於簡化性框架，僅用於理解與反思，無法取代專業評估或治療。如果您或您認識的人正在經歷精神健康危機，請立即向合資格醫療專業人員尋求協助，或聯絡當地緊急服務。</p>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo" aria-label="精神健康素養計劃">
+        <img src="MHLP.jpg" alt="精神健康素養標誌" class="footer-logo-img" onerror="this.style.display='none'" />
+        精神健康素養計劃
+      </a>
+      <nav class="footer-links" aria-label="頁腳導航">
+        <a href="index.html">首頁</a>
+        <a href="learn.html">知識</a>
+        <a href="stigma.html">態度</a>
+        <a href="selfhelp.html">自助</a>
+        <a href="help.html">尋求協助</a>
+   <a href="activties.html">活動</a>
+        <a href="others.html">其他連結</a>
+ <a href="news.html" >📰 最新消息</a>
+            
+
+
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-contact">如有查詢，歡迎電郵至：<a href="mailto:mhlwebeducation@gmail.com">mhlwebeducation@gmail.com</a></p>
+      <p class="footer-copy">&copy; 2026 精神健康素養計劃</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const btn  = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      const moonSVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+      const sunSVG  = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+      if (btn) {
+        btn.innerHTML = dark ? sunSVG : moonSVG;
+        btn.addEventListener('click', () => {
+          dark = !dark;
+          root.setAttribute('data-theme', dark ? 'dark' : 'light');
+          btn.innerHTML = dark ? sunSVG : moonSVG;
+        });
+      }
+      const hamburger = document.querySelector('.hamburger');
+      const navBottom = document.querySelector('.nav-bottom-bar');
+      if (hamburger && navBottom) {
+        hamburger.addEventListener('click', () => {
+          const open = navBottom.classList.toggle('open');
+          hamburger.setAttribute('aria-expanded', open);
+        });
+      }
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => io.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('visible'));
+      }
+      const sections = document.querySelectorAll('section[id]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const onScroll = () => {
+        let current = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 160) current = s.id; });
+        tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
