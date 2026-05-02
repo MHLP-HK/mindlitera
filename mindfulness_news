@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>靜觀入門課程 | 導師：Janice Cheung</title>
+    <style>
+        :root {
+            --midnight: #062732;
+            --verdigris: #0AC3B7;
+            --sunshine: #FFCB3C;
+            --white: #ffffff;
+            --font-main: "Nunito", sans-serif;
+            --font-heading: "Urbane Rounded", sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--midnight);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fbfb;
+        }
+
+        header {
+            background-color: var(--midnight);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 832px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+
+        h1 { font-size: 36px; margin-bottom: 10px; }
+        
+        .trainer-info {
+            font-size: 1.2em;
+            color: var(--sunshine);
+            margin-bottom: 20px;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(6, 39, 50, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            border-left: 5px solid var(--verdigris);
+            padding-left: 20px;
+            margin: 20px 0;
+            background-color: #f0fefa;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--midnight);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            background-color: #0a3a4a;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>靜觀入門課程</h1>
+    <div class="trainer-info">課程導師：Janice Cheung</div>
+</header>
+
+<div class="container">
+    <section class="course-card">
+        <h2>課程簡介</h2>
+        <p>
+            如果您是靜觀（Mindfulness）的新手，或者想在停下一段時間後重新開始，我們為期三週的<strong>靜觀入門課程</strong>能讓您初步體驗靜觀的練習與理論。
+        </p>
+        <p>
+            本課程每週進行一次，您將探索三個核心的靜觀主題，旨在支持您的日常生活：
+        </p>
+        
+        <div class="highlight-box">
+            <ul>
+                <li><strong>小組課堂：</strong> 包含練習、反思與討論。</li>
+                <li><strong>課後練習：</strong> 每天約 20 分鐘的自主練習。</li>
+                <li><strong>專業指導：</strong> 由認可導師 Janice Cheung 帶領。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>為什麼選擇這個課程？</h2>
+        <p>
+            「靜觀入門」是一套簡短且實用的方案。它源自 Oxford Mindfulness 所研發的靜觀認知療法（MBCT），幫助您在繁忙的生活中找到平靜與清晰。
+        </p>
+        <h3>您將會學到：</h3>
+        <ul>
+            <li>如何在當下保持覺察，減少自動導航模式。</li>
+            <li>應對日常壓力的簡單練習。</li>
+            <li>將靜觀融入日常活動的方法。</li>
+        </ul>
+    </section>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="#" class="button">立即報名參加</a>
+    </div>
+</div>
+
+<footer style="text-align: center; padding: 20px; font-size: 0.9em; color: #60757c;">
+    &copy; 2026 Janice Cheung x Oxford Mindfulness 課程架構參考
+</footer>
+
+</body>
+</html>
